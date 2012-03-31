@@ -1,0 +1,42 @@
+name: Console
+main: com.github.Saposhiente.Console.Console
+version: 0.3.1
+commands:
+    do:
+        description: Executes a console command in a blank environment with EID -1
+        usage: /do <command> <arguments>
+        permission: Console.c
+        permission-message: I REJECT YOUR COMMAND AND SUBSTITUTE MY OWN (No permssion)
+    c:
+        description: Opens the console. Use exit to exit.
+        usage: /c
+        permission: Console.c
+        permission-message: I REJECT YOUR COMMAND AND SUBSTITUTE MY OWN (No permssion)
+permissions:
+    console.*:
+        description: Gives access to all console commands
+        children:
+            console.c: true
+            console.admin.*: true
+    console.c:
+        description: Allows use of the console
+        default: op
+    console.admin.*:
+        description: Gives access to all admin console commands
+        children:
+            console.admin.sudo.*: true
+            console.admin.sudoroot: true
+            console.admin.broadcast: true
+            console.admin.tell: true
+    console.admin.sudo.*:
+        description: Allows sudo as any user
+        default: op
+    console.admin.sudoroot:
+        description: Allows sudo as root.
+        default: op
+    console.admin.broadcast:
+        description: Allows broadcast of arbitrary messages.
+        default: op
+    console.admin.tell:
+        description: Allows whisper of arbitrary messages.
+        default: op
