@@ -44,7 +44,10 @@ public class Console extends JavaPlugin {
         if (cmd.getName().equalsIgnoreCase("do")) { //execute one command
             if (console) {
                 try {
-                    log.info(consoleListener.doCommand(args, null));
+                    String r = consoleListener.doCommand(args, null);
+                    if (!r.isEmpty()) {
+                        log.info(r);
+                    }
                 } catch (SyntaxError ex) {
                     log.warning(ex.getMessage());
                 }
@@ -60,8 +63,11 @@ public class Console extends JavaPlugin {
             if (console) { //TODO
                 log.info("Yo dawg, I herd you like consoles, so I put a console in a console so you could use a feature that hasn't been added yet.");
                 } else {
-                consoleListener.addPlayer(player);
+                if (consoleListener.addPlayer(player) > -1) {
                 player.sendMessage("Entering console. Say exit to get out.");
+                } else {
+                    player.sendMessage("You are already in the console.");
+                }
             }
             return true;
         }

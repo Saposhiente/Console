@@ -1,6 +1,6 @@
 name: Console
 main: com.github.Saposhiente.Console.Console
-version: 0.3.2
+version: 0.4.1
 commands:
     do:
         description: Executes a console command in a blank environment with EID -1
@@ -35,8 +35,8 @@ permissions:
         description: Allows sudo as root.
         default: op
     console.admin.broadcast:
-        description: Allows broadcast of arbitrary messages.
+        description: Allows broadcast of arbitrary messages (Can be abused)
         default: op
     console.admin.tell:
-        description: Allows whisper of arbitrary messages.
+        description: Allows whisper of arbitrary messages (Can be abused)
         default: op

@@ -18,5 +18,10 @@ public class SyntaxError extends Throwable {
     SyntaxError() {
         super();
     }
-    
+    SyntaxError(Throwable t) {
+        super(t);
+    }
+    SyntaxError(String s, Throwable t) {
+        super(s, t);
+    }
 }
